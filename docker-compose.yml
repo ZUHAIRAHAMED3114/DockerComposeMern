@@ -2,6 +2,7 @@ version: '3'
 services:
   frontend:
     build: ./frontend
+    container_name: react-ui
     ports:
       - "3000:3000"
     stdin_open: true
@@ -12,6 +13,7 @@ services:
       - mern-network
   backend:
     build: ./backend
+    container_name: node-api
     ports:
       - "5000:5000"
     depends_on:
@@ -20,6 +22,7 @@ services:
       - mern-network
   database:
     image: mongo
+    container_name: mongo-db
     ports:
       - "27017:27017"
     volumes:
